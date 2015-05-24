@@ -1,6 +1,6 @@
 <?php
 
-use gregoryv\timereport\TemplateGenerator;
+use gregoryv\timesheet\TemplateGenerator;
 
 class TemplateGeneratorTest extends PHPUnit_Framework_TestCase {
 

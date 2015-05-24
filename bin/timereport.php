@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use gregoryv\timereport\TemplateGenerator;
+use gregoryv\timesheet\TemplateGenerator;
 
 
 $g = new TemplateGenerator();

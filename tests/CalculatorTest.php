@@ -1,7 +1,7 @@
 <?php
 
-use gregoryv\timereport\TemplateGenerator;
-use gregoryv\timereport\Calculator;
+use gregoryv\timesheet\TemplateGenerator;
+use gregoryv\timesheet\Calculator;
 
 class CalculatorTest extends PHPUnit_Framework_TestCase {
 

@@ -1,5 +1,5 @@
 <?php
-namespace gregoryv\timereport;
+namespace gregoryv\timesheet;
 
 /**
 * Math operations for time reports
