@@ -1,0 +1,15 @@
+language: php
+php:
+  - 5.5
+  - 5.6
+  - hhvm
+  - nightly
+env:
+  - CODECLIMATE_REPO_TOKEN=dbc772d2a26c017eb097e4d72042c14b13beacaee3a258bdc44378903b2d6757
+
+before_script:
+  - composer self-update
+  - composer install
+
+script: make test
+after_script: ./vendor/bin/test-reporter
