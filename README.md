@@ -4,5 +4,7 @@
 
 README
 ======
-# php-timesheet
-Text timesheet format and library
+
+Text timesheet format and library.
+
+The `data` directory contains example sheets.
