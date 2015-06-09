@@ -7,3 +7,4 @@ vendor/
 build/
 api/
 onchange.sh
+*.sublime-*

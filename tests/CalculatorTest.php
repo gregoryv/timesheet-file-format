@@ -15,7 +15,9 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
     * @group unit
     */
     function reported_time_summary() {
-        $may = $this->gen->month(2015,5);
+        $may = $this->gen->month(2015,5); # 168 hours manually calculated
+        // Adding a comment string
+        $may .= "\n# some documentation here\n";
         $this->assertEquals($this->calc->reported($may), 168);
     }
 

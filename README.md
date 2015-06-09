@@ -8,3 +8,20 @@ README
 Text timesheet format and library.
 
 The `data` directory contains example sheets.
+
+
+File format
+-----------
+
+The main goals of the file format are
+
+- human readable
+- easily editable with basic text editor
+- easy to parse
+
+Example
+-------
+
+    YYYY MonthName
+    --------------
+    Week Day DayName Hours (hours tag)* [notes]
