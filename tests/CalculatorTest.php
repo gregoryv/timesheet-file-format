@@ -18,7 +18,22 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
         $may = $this->gen->month(2015,5); # 168 hours manually calculated
         // Adding a comment string
         $may .= "\n# some documentation here\n";
-        $this->assertEquals($this->calc->reported($may), 168);
+        $this->assertEquals(168, $this->calc->reported($may));
+    }
+
+    /**
+    * @test
+    * @group unit
+    */
+    function tagged_hour_summary() {
+        $trep = file_get_contents(__DIR__ . '/../data/201505.trep');
+        $expected = array(
+            'ö' => 1,
+            'kö' => 9,
+            'flex' => 5
+        );
+        $this->assertEquals($expected, $this->calc->tagged($trep));
+
     }
 
 }

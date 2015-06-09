@@ -24,4 +24,30 @@ class Calculator
         }
         return $sum;
     }
+
+    /**
+     * Tagged hours are written in the form ([+|-]hours tagword)
+     *
+     * @return array with summary for each tag in the report
+     */
+    public function tagged($report)
+    {
+        $result = array();
+        $lines = explode("\n", $report);
+        foreach ($lines as $line) {
+            if(preg_match("/^#/", $line)) {
+                continue;
+            }
+            if(preg_match_all("/\(([\+|-]?\d+)\s+([^\s|\)]+)\s*\)/", $line, $matches, PREG_SET_ORDER)) {
+                foreach ($matches as $items) {
+                    $tag = $items[2];
+                    if(!isset($result[$tag])) {
+                        $result[$tag] = 0;
+                    }
+                    $result[$tag] += $items[1];
+                }
+            }
+        }
+        return $result;
+    }
 }
