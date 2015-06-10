@@ -9,6 +9,7 @@ Text timesheet format and library.
 
 The `data` directory contains example sheets.
 
+* [API reference](http://gregoryv.github.io/php-timesheet/)
 
 File format
 -----------
@@ -19,8 +20,7 @@ The main goals of the file format are
 - easily editable with basic text editor
 - easy to parse
 
-Example
--------
+### Example
 
     YYYY MonthName
     --------------
