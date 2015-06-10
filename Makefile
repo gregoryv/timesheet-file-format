@@ -7,7 +7,7 @@ coverage:
 	./vendor/bin/phpunit --bootstrap vendor/autoload.php --coverage-html build/coverage tests
 
 api:
-	apigen generate --source src --destination api
+	apigen generate --source src --destination build/api
 
 pages: api
 	mv api api.bak

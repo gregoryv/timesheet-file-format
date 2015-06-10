@@ -8,6 +8,24 @@ class Calculator
 {
 
     /**
+     * Returns a string with
+     *
+     *  sum=hours tag1=hours ... tagN=hours
+     *
+     * @return string
+     */
+    public function sum($report)
+    {
+        $sum = sprintf("sum=%s", $this->reported($report));
+        foreach ($this->tagged($report) as $key => $value) {
+            $sum .= sprintf(" %s=%s", $key, $value);
+        }
+        return $sum;
+    }
+
+    /**
+     * Sums all reported hours.
+     *
      * @return integer sum of all reported hours
      */
     public function reported($report)
