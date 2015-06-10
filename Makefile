@@ -10,7 +10,7 @@ api:
 	apigen generate --source src --destination build/api
 
 pages: api
-	mv api api.bak
+	mv build/api api.bak
 	git checkout gh-pages
 	rm -rf api
 	mv api.bak api
