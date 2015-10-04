@@ -29,13 +29,13 @@ The `data` directory contains more example sheets.
         2 Tue 8
         3 Wed 8
         4 Thu 8
-        5 Fri 6 (+2 flex)
+        5 Fri 6 (-2 flex) Ended work 2 hours early, felt sick.
         6 Sat
         7 Sun
     24  8 Mon 8
         9 Tue 8
        10 Wed 8
-       11 Thu 8
+       11 Thu 8 (7 conference) (1 travel)
        12 Fri 8
        13 Sat
        14 Sun
@@ -55,3 +55,20 @@ The `data` directory contains more example sheets.
        28 Sun
     27 29 Mon 8
        30 Tue 8
+
+
+Tools
+-----
+
+### bin/sum.php
+
+Generates a summary of one given report. For the above example the
+summary would be
+
+    sum=174 flex=-2 conference=7 travel=1
+
+
+### bin/timesheet.php
+
+Renders a timesheet template with for a given month. Each working
+day, monday-friday, has 8 hours by default.
