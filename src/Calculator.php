@@ -1,5 +1,6 @@
 <?php
 namespace gregoryv\timesheet;
+require 'utils.php';
 
 /**
 * Math operations for time reports
@@ -8,61 +9,43 @@ class Calculator
 {
 
     /**
-     * Returns a string with
+     * Adds summary from the given report to totals
      *
-     *  sum=hours tag1=hours ... tagN=hours
-     *
-     * @return string
+     * @param string $report to scan for values
+     * @param array $totals reference to array where sums are added, may be empty
      */
-    public function sum($report)
+    public function sum($report, &$totals)
     {
-        $sum = sprintf("sum=%s", $this->reported($report));
-        foreach ($this->tagged($report) as $key => $value) {
-            $sum .= sprintf(" %s=%s", $key, $value);
+        foreach ($this->parse($report) as $k => $v) {
+            addTo($totals, $k, $v);
         }
-        return $sum;
     }
 
-    /**
-     * Sums all reported hours.
-     *
-     * @return integer sum of all reported hours
-     */
-    public function reported($report)
-    {
-        $sum = 0;
-        $lines = explode("\n", $report);
-        foreach ($lines as $line) {
-            if(preg_match("/^#/", $line)) {
-                continue;
-            }
-            if(preg_match("/^.{10,10}(\d).*$/", $line, $matches)) {
-                $sum += $matches[1];
-            }
-        }
-        return $sum;
-    }
 
     /**
+     * Summarizes reported and tagged hours. 
      * Tagged hours are written in the form ([+|-]hours tagword)
      *
      * @return array with summary for each tag in the report
      */
-    public function tagged($report)
+    public function parse($report)
     {
-        $result = array();
+        $result = array('sum' => 0);
         $lines = explode("\n", $report);
         foreach ($lines as $line) {
+            # Skip comments
             if(preg_match("/^#/", $line)) {
                 continue;
             }
+            # Reported hours
+            if(preg_match("/^.{10,10}(\d).*$/", $line, $matches)) {
+                $result['sum'] += $matches[1];
+            }
+            # Taggs
             if(preg_match_all("/\(([\+|-]?\d+)\s+([^\s|\)]+)\s*\)/", $line, $matches, PREG_SET_ORDER)) {
                 foreach ($matches as $items) {
                     $tag = $items[2];
-                    if(!isset($result[$tag])) {
-                        $result[$tag] = 0;
-                    }
-                    $result[$tag] += $items[1];
+                    addTo($result, $tag, $items[1]);
                 }
             }
         }

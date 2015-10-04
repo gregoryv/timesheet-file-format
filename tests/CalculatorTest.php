@@ -16,29 +16,27 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
     */
     public function sum_test()
     {
-        $expected = "sum=152 kö=9 flex=5 ö=1";
-        $this->assertEquals($expected, $this->calc->sum($this->sheet));
-    }
-
-    /**
-    * @test
-    * @group unit
-    */
-    function reported_time_summary() {
-        $this->assertEquals(152, $this->calc->reported($this->sheet));
-    }
-
-    /**
-    * @test
-    * @group unit
-    */
-    function tagged_hour_summary() {
         $expected = array(
+            'sum'  => 152,
+            'kö'   => 9,
+            'flex' => 5,
+            'ö'    => 1);
+        $totals = array();
+        $this->calc->sum($this->sheet, $totals);
+        $this->assertEquals($expected, $totals);
+    }
+
+    /**
+    * @test
+    * @group unit
+    */
+    function parse_hour_summary() {
+        $expected = array(
+            'sum' => 152,
             'ö' => 1,
             'kö' => 9,
             'flex' => 5
         );
-        $this->assertEquals($expected, $this->calc->tagged($this->sheet));
-
+        $this->assertEquals($expected, $this->calc->parse($this->sheet));
     }
 }
