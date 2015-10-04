@@ -5,9 +5,9 @@ use gregoryv\timesheet\TemplateGenerator;
 class TemplateGeneratorTest extends PHPUnit_Framework_TestCase {
 
     function setUp() {
-        $g = new TemplateGenerator();
+        $template = new TemplateGenerator();
         // months go from 1-12
-        $this->template = $g->month(2015, 5);
+        $this->template = $template->generate(2015, 5);
         $this->lines = explode("\n", $this->template);
     }
 

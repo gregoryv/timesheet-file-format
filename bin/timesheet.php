@@ -1,48 +1,35 @@
 <?php
-// Command line interface for generating and summarizing timesheets
+// Command line interface for generating timesheets
 require __DIR__ . '/../vendor/autoload.php';
-
 use gregoryv\timesheet\TemplateGenerator;
 
+# Verify commandline options
 $opts = getopt('y:m:');
-validate_options($opts);
-$g = new TemplateGenerator();
-print $g->month($opts['y'], $opts['m']);
+$yyyy = getInt($opts, 'y', 1000, 9999) || usage();
+$mm   = getInt($opts, 'm',    1,   12) || usage();
+# Render template
+print (new TemplateGenerator())->generate($yyyy, $mm);
 
-
-function print_help($error)
+/**
+ * Print usage information and exit.
+ */
+function usage()
 {
-    print $error;
+    print "timesheet.php -y YYYY -m [1-12]";
     exit(1);
 }
 
 /**
- * @return array of key value options
+ *
+ * @return mixed if the value is ok false otherwise
  */
-function validate_options(&$opts)
+function getInt(&$arr, $key, $from, $to)
 {
-    list($year, $err) = getInt($opts, 'y');
-    if($err) { print_help('-y YYYY required'); };
-
-    list($month, $err) = getInt($opts, 'm');
-    if($err) { print_help('-m [1-12] required'); };
-
-    if($year < 1000) {
-        print_help("Year must be four digits: $year");
+    if(!isset($arr[$key])) {
+        return false;
     }
-
-    if($month < 1 or $month > 12) {
-        print_help("Month must be 1-12: $month");
-    }
-    return $opts;
-}
-
-function getInt(&$arr, $key)
-{
-    if(isset($arr[$key])) {
-        $value = intval($arr[$key]);
-        return array($value, false);
-    }
-    return array(null, true);
+    # Check range
+    $value = intval($arr[$key]);
+    return ($value >= $from && $value <= $to) ? $value : false;
 }
 

@@ -6,50 +6,31 @@ namespace gregoryv\timesheet;
 */
 class TemplateGenerator
 {
-
     /**
-     * @return string monthly template with 8 hours for each weekday
+     * Text template with week numbers and indented days.
+     *
+     * @return string Monthly template with 8 hours for each weekday
      */
-    public function month($year, $month)
+    public function generate($year, $month, $hours = 8)
     {
-        $start_date = sprintf('%s-%s-01', $year, $month);
-        $end_date = sprintf('%s-%s-31', $year, $month);
-        $begin = new \DateTime( $start_date );
-        $end = new \DateTime( $start_date );
-        $end = $end->modify( '+1 month' );
+        $first = sprintf('%s-%s-01', $year, $month);
+        $begin = new \DateTime( $first );
+        $end  = (new \DateTime( $first ))->modify( '+1 month' );
+        $range = new \DatePeriod($begin, new \DateInterval('P1D') ,$end);
 
-        $interval = new \DateInterval('P1D');
-        $daterange = new \DatePeriod($begin, $interval ,$end);
-        $template = sprintf("%s %s", $year, $begin->format('F'));
-        $line = preg_replace('/./', '-', $template);
-        $template .= "\n$line\n";
+        # YYYY Month
+        # ----------
+        $template  = sprintf("%s %s", $year, $begin->format('F'));
+        $template .= sprintf("\n%s\n", preg_replace('/./', '-', $template));
 
-        $first_day = true;
-        foreach($daterange as $date){
-            $week = "";
-            $day = sprintf("%2s", $date->format("j"));
-            $wday = $date->format("D");
-            $hours = " 8";
-
-            switch ($date->format("D")) {
-                case 'Mon':
-                    $week = sprintf("%2s", $date->format("W"));
-                    break;
-
-                case 'Sat':
-                case 'Sun':
-                    $hours = "";
-                    break;
-
-            }
-            if($first_day) {
-                $week = sprintf("%2s", $date->format("W"));
-                $first_day = false;
-            }
-            $template .= sprintf("%2s %s %s%s\n", $week, $day, $wday, $hours);
-
+        $lines = array();
+        foreach($range as $date) {
+            $day = $date->format("D");
+            # Only Saturday or Sunday start with 'S'
+            $dayh = ($day[0] == 'S') ? $day : $day . " " . $hours;
+            $week = ($day == 'Mon' || empty($lines)) ? $date->format("W") : "";
+            $lines[] = sprintf("%2s %2s %s", $week, $date->format("j"), $dayh);
         }
-        return $template;
+        return $template . implode("\n", $lines) . "\n";
     }
-
 }
