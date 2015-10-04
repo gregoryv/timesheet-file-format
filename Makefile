@@ -9,8 +9,10 @@ coverage:
 api:
 	apigen generate --source src --destination build/api
 
-pages: api
-	mv build/api api.bak
+clean:
+	rm -rf build
+
+pages: clean api
 	git checkout gh-pages
 	rm -rf api
-	mv api.bak api
+	mv build/api api
