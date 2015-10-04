@@ -1,3 +1,3 @@
 
 var ApiGen = ApiGen || {};
-ApiGen.elements = [["c","gregoryv\\timesheet\\Calculator"],["c","gregoryv\\timesheet\\TemplateGenerator"]];
+ApiGen.elements = [["f","addTo()"],["c","gregoryv\\timesheet\\Calculator"],["c","gregoryv\\timesheet\\TemplateGenerator"],["f","setDefault()"]];
