@@ -7,7 +7,7 @@ class SheetGeneratorTest extends PHPUnit_Framework_TestCase {
     function setUp() {
         $sg = new SheetGenerator();
         // months go from 1-12
-        $this->$sheet = $sg->generate(2015, 5);
+        $this->sheet = $sg->generate(2015, 5);
         $this->lines = explode("\n", $this->sheet);
     }
 
