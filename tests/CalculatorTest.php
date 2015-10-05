@@ -14,7 +14,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
      * @test
      * @group unit
     */
-    public function sum_test()
+    public function add_test()
     {
         $expected = array(
             'sum'  => 152,
@@ -22,7 +22,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
             'flex' => 5,
             'ö'    => 1);
         $totals = array();
-        $this->calc->sum($this->sheet, $totals);
+        $this->calc->add($this->sheet, $totals);
         $this->assertEquals($expected, $totals);
     }
 
@@ -30,13 +30,13 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
     * @test
     * @group unit
     */
-    function parse_hour_summary() {
+    function sum_hours_in_timesheet() {
         $expected = array(
             'sum' => 152,
             'ö' => 1,
             'kö' => 9,
             'flex' => 5
         );
-        $this->assertEquals($expected, $this->calc->parse($this->sheet));
+        $this->assertEquals($expected, $this->calc->sum($this->sheet));
     }
 }

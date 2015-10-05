@@ -1,14 +1,14 @@
 <?php
 
-use gregoryv\timesheet\TemplateGenerator;
+use gregoryv\timesheet\SheetGenerator;
 
-class TemplateGeneratorTest extends PHPUnit_Framework_TestCase {
+class SheetGeneratorTest extends PHPUnit_Framework_TestCase {
 
     function setUp() {
-        $template = new TemplateGenerator();
+        $sg = new SheetGenerator();
         // months go from 1-12
-        $this->template = $template->generate(2015, 5);
-        $this->lines = explode("\n", $this->template);
+        $this->$sheet = $sg->generate(2015, 5);
+        $this->lines = explode("\n", $this->sheet);
     }
 
     /**
@@ -55,5 +55,4 @@ class TemplateGeneratorTest extends PHPUnit_Framework_TestCase {
             $this->lines
         );
     }
-
 }

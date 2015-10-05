@@ -2,14 +2,16 @@
 namespace gregoryv\timesheet;
 
 /**
-* Generates timereport templates
+* Generates timesheets
 */
-class TemplateGenerator
+class SheetGenerator
 {
     /**
-     * Text template with week numbers and indented days.
+     * Generates timesheet with week numbers and indented days.
      *
-     * @return string Monthly template with 8 hours for each weekday
+     * @param int $year four digit year
+     * @param int $month 1-12
+     * @return string Monthly timesheet with 8 hours for each weekday
      */
     public function generate($year, $month, $hours = 8)
     {
@@ -20,8 +22,8 @@ class TemplateGenerator
 
         # YYYY Month
         # ----------
-        $template  = sprintf("%s %s", $year, $begin->format('F'));
-        $template .= sprintf("\n%s\n", preg_replace('/./', '-', $template));
+        $sheet  = sprintf("%s %s", $year, $begin->format('F'));
+        $sheet .= sprintf("\n%s\n", preg_replace('/./', '-', $sheet));
 
         $lines = array();
         foreach($range as $date) {
@@ -31,6 +33,6 @@ class TemplateGenerator
             $week = ($day == 'Mon' || empty($lines)) ? $date->format("W") : "";
             $lines[] = sprintf("%2s %2s %s", $week, $date->format("j"), $dayh);
         }
-        return $template . implode("\n", $lines) . "\n";
+        return $sheet . implode("\n", $lines) . "\n";
     }
 }

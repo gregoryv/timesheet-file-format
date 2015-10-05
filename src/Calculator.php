@@ -3,35 +3,33 @@ namespace gregoryv\timesheet;
 require 'utils.php';
 
 /**
-* Math operations for time reports
+* Math operations for timesheets.
 */
 class Calculator
 {
-
     /**
-     * Adds summary from the given report to totals
+     * Adds summary from the given sheet to totals
      *
-     * @param string $report to scan for values
+     * @param string &$sheet to scan for values
      * @param array $totals reference to array where sums are added, may be empty
      */
-    public function sum($report, &$totals)
+    public function add(&$sheet, &$totals)
     {
-        foreach ($this->parse($report) as $k => $v) {
+        foreach ($this->sum($sheet) as $k => $v) {
             addTo($totals, $k, $v);
         }
     }
 
-
     /**
-     * Summarizes reported and tagged hours. 
+     * Summarizes reporteded and tagged hours. 
      * Tagged hours are written in the form ([+|-]hours tagword)
      *
-     * @return array with summary for each tag in the report
+     * @return array with summary for each tag in the sheet
      */
-    public function parse($report)
+    public function sum(&$sheet)
     {
-        $result = array('sum' => 0);
-        $lines = explode("\n", $report);
+        $totals = array('sum' => 0);
+        $lines = explode("\n", $sheet);
         foreach ($lines as $line) {
             # Skip comments
             if(preg_match("/^#/", $line)) {
@@ -39,16 +37,15 @@ class Calculator
             }
             # Reported hours
             if(preg_match("/^.{10,10}(\d).*$/", $line, $matches)) {
-                $result['sum'] += $matches[1];
+                $totals['sum'] += $matches[1];
             }
-            # Taggs
+            # Tags
             if(preg_match_all("/\(([\+|-]?\d+)\s+([^\s|\)]+)\s*\)/", $line, $matches, PREG_SET_ORDER)) {
                 foreach ($matches as $items) {
-                    $tag = $items[2];
-                    addTo($result, $tag, $items[1]);
+                    addTo($totals, $items[2], $items[1]);
                 }
             }
         }
-        return $result;
+        return $totals;
     }
 }
