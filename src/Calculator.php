@@ -21,6 +21,17 @@ class Calculator
     }
 
     /**
+     * Adds summary from each sheet to totals
+     */
+    public function addAll($files, &$totals)
+    {
+        foreach ($files as $file) {
+            $sheet = file_get_contents($file);
+            $this->add($sheet, $totals);
+        }
+    }
+
+    /**
      * Summarizes reporteded and tagged hours. 
      * Tagged hours are written in the form ([+|-]hours tagword)
      *

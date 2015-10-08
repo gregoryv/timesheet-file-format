@@ -39,4 +39,17 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
         );
         $this->assertEquals($expected, $this->calc->sum($this->sheet));
     }
+
+    /**
+     * @test
+     * @group unit
+     */
+    public function addAll_files_sums_correctly()
+    {
+        $files = array(__DIR__ . '/../data/201506.trep', __DIR__ . '/../data/201507.trep');
+        $result = array();
+        $this->calc->addAll($files, $result);
+        $expected = array('sum' => 338, 'flex' => 2, 'semester' => 120);
+        $this->assertEquals($expected, $result);
+    }
 }

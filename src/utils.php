@@ -24,3 +24,15 @@ function addTo(&$arr, $key, $value) {
   setDefault($arr, $key, 0);
   $arr[$key] += $value;
 }
+
+/**
+ * @return string oneline summary with key=value pairs
+ */
+function toLine(&$arr)
+{
+  $line = "";
+  foreach ($arr as $k => $v) {
+    $line .= sprintf("%s=%s ", $k, $v);
+  }
+  return rtrim($line) ."\n";
+}
