@@ -13,8 +13,8 @@
    11 Sun
 42 12 Mon 8
    13 Tue 8
-   14 Wed 8
-   15 Thu 8
+   14 Wed 6 (-2 flex), 3 konferens ej debiterbart
+   15 Thu 7 1.5 konferens ej debiterbart
    16 Fri 8
    17 Sat
    18 Sun
