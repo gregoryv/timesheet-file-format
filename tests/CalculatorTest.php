@@ -6,7 +6,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
 
     function setUp() {
         $this->calc = new Calculator();
-        $this->sheet = file_get_contents(__DIR__ . '/../data/201505.trep');
+        $this->sheet = file_get_contents(__DIR__ . '/../data/201505.ets');
         $this->sheet .= "\n# some documentation here\n";
     }
 
@@ -46,7 +46,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase {
      */
     public function addAll_files_sums_correctly()
     {
-        $files = array(__DIR__ . '/../data/201506.trep', __DIR__ . '/../data/201507.trep');
+        $files = array(__DIR__ . '/../data/201506.ets', __DIR__ . '/../data/201507.ets');
         $result = array();
         $this->calc->addAll($files, $result);
         $expected = array('sum' => 338, 'flex' => 2, 'semester' => 120);
