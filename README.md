@@ -62,7 +62,7 @@ Tools
 
 ### bin/sum.php
 
-Generates a summary of one given report. For the above example the
+Prints out summary of one or more timesheet files. For the above example the
 summary would be
 
     sum=174 flex=-2 conference=7 travel=1
