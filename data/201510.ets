@@ -12,22 +12,24 @@
    10 Sat
    11 Sun
 42 12 Mon 8
-   13 Tue 8
-   14 Wed 6 (-2 flex), 3 konferens ej debiterbart
-   15 Thu 7 1.5 konferens ej debiterbart
+   13 Tue   VAB
+   14 Wed 9 (3 konferens) ej debiterbar konferens
+   15 Thu 8:30 (1:30 konferens) ej debiterbart konferens
    16 Fri 8
    17 Sat
    18 Sun
-43 19 Mon 8
+43 19 Mon   VAB
    20 Tue 8
    21 Wed 8
    22 Thu 8
-   23 Fri 8
+   23 Fri   semester
    24 Sat
    25 Sun
-44 26 Mon 8
-   27 Tue 8
-   28 Wed 8
-   29 Thu 8
-   30 Fri 8
+44 26 Mon   semester
+   27 Tue   semester
+   28 Wed   semester
+   29 Thu   semester
+   30 Fri   semester
    31 Sat
+
+# Otaggade timmar är AXIS timmar

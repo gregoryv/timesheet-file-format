@@ -1,11 +1,18 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-use gregoryv\timesheet\Calculator;
+use gregoryv\timesheet\Sheet;
+use gregoryv\timesheet\Totals;
 
 /**
   *  Prints out summary of one or more timesheet files.
   */
-$calc = new Calculator();
-$totals = array();
-$calc->addAll($argv, $totals);
-print toLine($totals);
+$totals = new Totals();
+foreach ($argv as $path) {
+  $txt = file_get_contents($path);
+  $sheet = new Sheet($txt);
+  foreach ($sheet->readTimes() as $time) {
+    $totals->add($time);
+  }
+}
+
+print $totals->toLine();

@@ -12,7 +12,15 @@
             "email": "g@7de.se"
         }
     ],
-    "require": {},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gregoryv/php-logger.git"
+        }
+    ],
+    "require": {
+        "gregoryv/php-logger": "*"
+        },
     "autoload": {
         "psr-4": {
             "gregoryv\\timesheet\\": "src/"

@@ -1,10 +1,10 @@
 all: test
 
 test:
-	php vendor/bin/phpunit --bootstrap vendor/autoload.php --coverage-clover build/logs/clover.xml tests
+	php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 coverage:
-	./vendor/bin/phpunit --bootstrap vendor/autoload.php --coverage-html build/coverage tests
+	./vendor/bin/phpunit --coverage-html build/coverage
 
 api:
 	apigen generate --source src --destination build/api

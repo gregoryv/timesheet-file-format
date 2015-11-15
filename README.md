@@ -41,7 +41,7 @@ The `data` directory contains more example sheets.
        14 Sun
     25 15 Mon 8
        16 Tue 8
-       17 Wed 8
+       17 Wed 8:30 (0:30 flex)
        18 Thu 8
        19 Fri 8
        20 Sat
@@ -65,7 +65,7 @@ Tools
 Prints out summary of one or more timesheet files. For the above example the
 summary would be
 
-    sum=174 flex=-2 conference=7 travel=1
+    sum=174:30 flex=-1:30 conference=7 travel=1
 
 
 ### bin/timesheet.php
