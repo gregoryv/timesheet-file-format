@@ -2,7 +2,7 @@
 namespace gregoryv\timesheet;
 
 /**
- *
+ * Sheet is used to parse .ets files
  */
 class Sheet
 {
@@ -12,8 +12,8 @@ class Sheet
     }
 
     /**
-     * Each reported hour is returned as a Time object aswell as each tagged
-     * time.
+     * Each reported and tagged times are returned as a Time objects in the order they
+     * are found.
      *
      * @return array of Time objects.
      */
