@@ -1,11 +1,11 @@
 2015 November
 -------------
 44  1 Sun
-45  2 Mon   semester
-    3 Tue   semester
-    4 Wed   semester
-    5 Thu   semester
-    6 Fri   semester
+45  2 Mon 8 (8 semester)
+    3 Tue 8 (8 semester)
+    4 Wed 8 (8 semester)
+    5 Thu 8 (8 semester)
+    6 Fri 8 (8 semester)
     7 Sat
     8 Sun
 46  9 Mon 6 (-2 flex)
