@@ -1,6 +1,6 @@
 2015 December
 -------------
-49  1 Tue 8
+49  1 Tue 9:30 (1:30 flex)
     2 Wed 8
     3 Thu 8
     4 Fri 8
@@ -9,7 +9,7 @@
 50  7 Mon 8
     8 Tue 8
     9 Wed 8
-   10 Thu 8
+   10 Thu 8 (8 VAB)
    11 Fri 8
    12 Sat
    13 Sun
