@@ -27,7 +27,7 @@
    25 Fri 8
    26 Sat
    27 Sun
-53 28 Mon 8 (8 semester)
-   29 Tue 8 (8 semester)
-   30 Wed 8 (8 semester)
+53 28 Mon 8
+   29 Tue 8
+   30 Wed 8
    31 Thu 8
