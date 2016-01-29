@@ -17,7 +17,7 @@
    15 Fri   sjuk
    16 Sat
    17 Sun
-03 18 Mon 8
+03 18 Mon 6 (-2 flex)
    19 Tue 8
    20 Wed 8
    21 Thu 8
