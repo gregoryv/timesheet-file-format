@@ -1,9 +1,9 @@
 2016 February
 -------------
-05  1 Mon 8
+05  1 Mon 9
     2 Tue 8
     3 Wed 8
-    4 Thu 8
+    4 Thu 7
     5 Fri 8
     6 Sat
     7 Sun
@@ -17,12 +17,12 @@
 07 15 Mon 8
    16 Tue 8
    17 Wed 8
-   18 Thu 8
-   19 Fri 8
+   18 Thu 8 (8 semester) begravning
+   19 Fri 7:30 (-0:30 flex)
    20 Sat
    21 Sun
-08 22 Mon 8
-   23 Tue 8
+08 22 Mon 8:30 (+0:30 flex)
+   23 Tue 7:30 (-0:30 flex)
    24 Wed 8
    25 Thu 8
    26 Fri 8
