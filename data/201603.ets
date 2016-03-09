@@ -1,13 +1,13 @@
 2016 March
 ----------
-09  1 Tue 8
+09  1 Tue 9 (+1 flex)
     2 Wed 8
     3 Thu 8
     4 Fri 8
     5 Sat
     6 Sun
 10  7 Mon 8
-    8 Tue 8
+    8 Tue 7 (-1 flex) bankärende
     9 Wed 8
    10 Thu 8
    11 Fri 8
