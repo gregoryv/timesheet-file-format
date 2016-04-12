@@ -11,7 +11,7 @@
     9 Sat
    10 Sun
 15 11 Mon 8
-   12 Tue 8
+   12 Tue 7:30 (-0:30 flex)
    13 Wed 8
    14 Thu 8
    15 Fri 8
