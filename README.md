@@ -20,8 +20,6 @@ The main goals of the file format are
 
 ### Example
 
-The `data` directory contains more example sheets.
-
 
     2015 June
     ---------
