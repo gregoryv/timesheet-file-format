@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/gregoryv/php-timesheet.svg?branch=master)](https://travis-ci.org/gregoryv/php-timesheet)
-[![Code Climate](https://codeclimate.com/github/gregoryv/php-timesheet/badges/gpa.svg)](https://codeclimate.com/github/gregoryv/php-timesheet)
-[![Test Coverage](https://codeclimate.com/github/gregoryv/php-timesheet/badges/coverage.svg)](https://codeclimate.com/github/gregoryv/php-timesheet/coverage)
+[![Build Status](https://travis-ci.org/gregoryv/timesheet-file-format.svg?branch=master)](https://travis-ci.org/gregoryv/timesheet-file-format)
+[![Code Climate](https://codeclimate.com/github/gregoryv/timesheet-file-format/badges/gpa.svg)](https://codeclimate.com/github/gregoryv/timesheet-file-format)
+[![Test Coverage](https://codeclimate.com/github/gregoryv/timesheet-file-format/badges/coverage.svg)](https://codeclimate.com/github/gregoryv/timesheet-file-format/coverage)
 
 README
 ======
