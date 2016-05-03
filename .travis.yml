@@ -6,7 +6,7 @@ php:
   - hhvm
   - nightly
 env:
-  - CODECLIMATE_REPO_TOKEN=dbc772d2a26c017eb097e4d72042c14b13beacaee3a258bdc44378903b2d6757
+  - CODECLIMATE_REPO_TOKEN=d8c626969c36be4b743244deca8493ad68f69aafd6790f7da89e9d8c00c3c576
 
 before_script:
   - composer self-update
