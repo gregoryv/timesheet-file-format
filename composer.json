@@ -12,12 +12,6 @@
             "email": "g@7de.se"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/gregoryv/php-logger.git"
-        }
-    ],
     "require": {
         "gregoryv/php-logger": "*"
         },
