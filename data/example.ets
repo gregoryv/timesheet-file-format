@@ -18,8 +18,8 @@
    16 Fri 8
    17 Sat
    18 Sun
-04 19 Mon 8 (8 vacation)
-   20 Tue 8 (8 vacation)
+04 19 Mon 8 (8 semester)
+   20 Tue 8 (8 semester)
    21 Wed 8
    22 Thu 8
    23 Fri 8
