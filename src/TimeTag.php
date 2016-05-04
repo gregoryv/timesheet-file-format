@@ -2,9 +2,9 @@
 namespace gregoryv\timesheet;
 
 /**
- * Time defines two integers hours:minutes
+ * TimeTag defines two integers hours:minutes
  */
-class Time
+class TimeTag
 {
     public $hours;
     public $minutes;

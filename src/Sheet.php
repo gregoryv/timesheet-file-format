@@ -12,12 +12,12 @@ class Sheet
     }
 
     /**
-     * Each reported and tagged times are returned as a Time objects in the order they
+     * Each reported and tagged times are returned as TimeTag objects in the order they
      * are found.
      *
-     * @return array of Time objects.
+     * @return array of TimeTag objects.
      */
-    public function readTimes()
+    public function readTimeTags()
     {
         $arr = array();
         $lines = explode("\n", $this->str);
@@ -30,7 +30,7 @@ class Sheet
             $min = "(:(\d\d))?";
             if(preg_match("/^.{10,10}(\d)$min.*$/", $line, $matches)) {
                 $mm = (sizeof($matches) === 4) ? $matches[3] : 0;
-                $arr[] = new Time($matches[1], $mm);
+                $arr[] = new TimeTag($matches[1], $mm);
             }
             # Tags
             if(preg_match_all("/\((([\+|-]?)\d+)$min\s+([^\s|\)]+)\s*\)/", $line, $matches, PREG_SET_ORDER)) {
@@ -40,7 +40,7 @@ class Sheet
                     $mm = $items[4];
                     $tag = $items[5];
                     $mm = ($mm === '') ? 0 : $operator . $mm;
-                    $arr[] = new Time($hh, $mm, $tag);
+                    $arr[] = new TimeTag($hh, $mm, $tag);
                 }
             }
         }

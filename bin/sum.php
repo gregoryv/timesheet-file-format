@@ -10,7 +10,7 @@ $totals = new Totals();
 foreach ($argv as $path) {
   $txt = file_get_contents($path);
   $sheet = new Sheet($txt);
-  foreach ($sheet->readTimes() as $time) {
+  foreach ($sheet->readTimeTags() as $time) {
     $totals->add($time);
   }
 }

@@ -1,7 +1,7 @@
 <?php
-use gregoryv\timesheet\Time;
+use gregoryv\timesheet\TimeTag;
 
-class TimeTest extends PHPUnit_Framework_TestCase
+class TimeTagTest extends PHPUnit_Framework_TestCase
 {
 
   function ok_times() {
@@ -22,7 +22,7 @@ class TimeTest extends PHPUnit_Framework_TestCase
    */
   public function test_ok_values($h, $m)
   {
-    $time = new Time($h, $m);
+    $time = new TimeTag($h, $m);
     $this->assertEquals($time->hours, $h);
     $this->assertEquals($time->minutes, $m);
     $this->assertInternalType('int', $time->hours);
@@ -48,7 +48,7 @@ class TimeTest extends PHPUnit_Framework_TestCase
    */
   public function test_bad_values($h, $m)
   {
-    $time = new Time($h, $m);
+    $time = new TimeTag($h, $m);
   }
 
   /**
@@ -57,8 +57,8 @@ class TimeTest extends PHPUnit_Framework_TestCase
    */
   public function add()
   {
-    $a = new Time();
-    $b = new Time(1, 2);
+    $a = new TimeTag();
+    $b = new TimeTag(1, 2);
     $a->add($b);
     $this->assertEquals($a->hours, 1);
     $this->assertEquals($a->minutes, 2);
@@ -70,12 +70,12 @@ class TimeTest extends PHPUnit_Framework_TestCase
    */
   public function add_negative_hours()
   {
-    $a = new Time();
-    $b = new Time(-1);
+    $a = new TimeTag();
+    $b = new TimeTag(-1);
     $a->add($b);
     $this->assertEquals($a->hours, -1);
     $this->assertEquals($a->minutes, 0);
-    $a->add(new Time(1));
+    $a->add(new TimeTag(1));
     $this->assertEquals($a->hours, 0);
   }
 
@@ -85,12 +85,12 @@ class TimeTest extends PHPUnit_Framework_TestCase
    */
   public function test_negative_minutes()
   {
-    $a = new Time();
-    $b = new Time(0, -10);
+    $a = new TimeTag();
+    $b = new TimeTag(0, -10);
     $a->add($b);
     $this->assertEquals($a->hours, 0);
     $this->assertEquals($a->minutes, -10);
-    $a->add(new Time(0, 10));
+    $a->add(new TimeTag(0, 10));
     $this->assertEquals($a->minutes, 0);
   }
 
@@ -114,7 +114,7 @@ class TimeTest extends PHPUnit_Framework_TestCase
    */
   public function test_toString($h, $m, $expected)
   {
-    $t = new Time($h, $m);
+    $t = new TimeTag($h, $m);
     $this->assertEquals($expected, $t->toString());
   }
 }

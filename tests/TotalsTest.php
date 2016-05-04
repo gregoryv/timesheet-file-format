@@ -1,6 +1,6 @@
 <?php
 use gregoryv\timesheet\Totals;
-use gregoryv\timesheet\Time;
+use gregoryv\timesheet\TimeTag;
 
 class TotalsTest extends \PHPUnit_Framework_TestCase
 {
@@ -12,11 +12,11 @@ class TotalsTest extends \PHPUnit_Framework_TestCase
     public function setDefault_ok()
     {
         $t = new Totals();
-        $time = new Time();
-        $t->setDefault(new Time(2,3,'default'));
+        $time = new TimeTag();
+        $t->setDefault(new TimeTag(2,3,'default'));
         $this->assertEquals(2, $t['default']->hours);
         $this->assertEquals(3, $t['default']->minutes);
-        $t->setDefault(new Time(0,0,'defaul'));
+        $t->setDefault(new TimeTag(0,0,'defaul'));
         $this->assertEquals(2, $t['default']->hours);
         $this->assertEquals(3, $t['default']->minutes);
     }
@@ -28,9 +28,9 @@ class TotalsTest extends \PHPUnit_Framework_TestCase
     public function toLine_ok()
     {
         $t = new Totals();
-        $t->setDefault(new Time(0,0, 'sum'));
-        $t->add(new Time(1,1,'sum'));
-        $t->add(new Time(16,0, 'vacation'));
+        $t->setDefault(new TimeTag(0,0, 'sum'));
+        $t->add(new TimeTag(1,1,'sum'));
+        $t->add(new TimeTag(16,0, 'vacation'));
 
         $result = $t->toLine();
         $this->assertContains("sum=", $result);
