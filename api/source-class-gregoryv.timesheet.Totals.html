@@ -8,7 +8,7 @@
 	<title>File Totals.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?3770084987"></script>
-	<script type="text/javascript" src="elementlist.js?1192068356"></script>
+	<script type="text/javascript" src="elementlist.js?402775960"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -40,7 +40,7 @@
 			<ul>
 				<li><a href="class-gregoryv.timesheet.Sheet.html">Sheet</a></li>
 				<li><a href="class-gregoryv.timesheet.SheetGenerator.html">SheetGenerator</a></li>
-				<li><a href="class-gregoryv.timesheet.Time.html">Time</a></li>
+				<li><a href="class-gregoryv.timesheet.TimeTag.html">TimeTag</a></li>
 				<li class="active"><a href="class-gregoryv.timesheet.Totals.html">Totals</a></li>
 			</ul>
 
@@ -98,7 +98,7 @@
 </span></span><span id="12" class="l"><a class="l" href="#12">12: </a><span class="php-comment">   * Sets default value of the key, if not already set.
 </span></span><span id="13" class="l"><a class="l" href="#13">13: </a><span class="php-comment">   *
 </span></span><span id="14" class="l"><a class="l" href="#14">14: </a><span class="php-comment">   * @param string $key Key in array to set
-</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment">   * @param Time obj default time
+</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment">   * @param TimeTag obj default time
 </span></span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-comment">   */</span>
 </span><span id="17" class="l"><a class="l" href="#17">17: </a>  <span class="php-keyword1">function</span> <a id="_setDefault" href="#_setDefault">setDefault</a>(<span class="php-var">$time</span>)
 </span><span id="18" class="l"><a class="l" href="#18">18: </a>  {
@@ -110,12 +110,12 @@
 </span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment">   * Adds the value to the keyed value, default is 0.
 </span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment">   *
 </span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment">   * @param string $key Key in array to set
-</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment">   * @param Time $time The time to add to an existing one
+</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment">   * @param TimeTag $time The time to add to an existing one
 </span></span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-comment">   */</span>
 </span><span id="29" class="l"><a class="l" href="#29">29: </a>  <span class="php-keyword1">function</span> <a id="_add" href="#_add">add</a>(<span class="php-var">$time</span>) {
 </span><span id="30" class="l"><a class="l" href="#30">30: </a>    <span class="php-var">$key</span> = <span class="php-var">$time</span>-&gt;tag;
 </span><span id="31" class="l"><a class="l" href="#31">31: </a>    <span class="php-keyword1">if</span>(!<span class="php-keyword1">isset</span>(<span class="php-var">$this</span>[<span class="php-var">$key</span>])) {
-</span><span id="32" class="l"><a class="l" href="#32">32: </a>      <span class="php-var">$this</span>[<span class="php-var">$key</span>] = <span class="php-keyword1">new</span> <span class="php-keyword2">Time</span>();
+</span><span id="32" class="l"><a class="l" href="#32">32: </a>      <span class="php-var">$this</span>[<span class="php-var">$key</span>] = <span class="php-keyword1">new</span> TimeTag();
 </span><span id="33" class="l"><a class="l" href="#33">33: </a>    }
 </span><span id="34" class="l"><a class="l" href="#34">34: </a>    <span class="php-var">$this</span>[<span class="php-var">$key</span>]-&gt;add(<span class="php-var">$time</span>);
 </span><span id="35" class="l"><a class="l" href="#35">35: </a>  }

@@ -8,7 +8,7 @@
 	<title>File Sheet.php</title>
 
 	<script type="text/javascript" src="resources/combined.js?3770084987"></script>
-	<script type="text/javascript" src="elementlist.js?1192068356"></script>
+	<script type="text/javascript" src="elementlist.js?402775960"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
 
 </head>
@@ -40,7 +40,7 @@
 			<ul>
 				<li class="active"><a href="class-gregoryv.timesheet.Sheet.html">Sheet</a></li>
 				<li><a href="class-gregoryv.timesheet.SheetGenerator.html">SheetGenerator</a></li>
-				<li><a href="class-gregoryv.timesheet.Time.html">Time</a></li>
+				<li><a href="class-gregoryv.timesheet.TimeTag.html">TimeTag</a></li>
 				<li><a href="class-gregoryv.timesheet.Totals.html">Totals</a></li>
 			</ul>
 
@@ -98,12 +98,12 @@
 </span><span id="12" class="l"><a class="l" href="#12">12: </a>    }
 </span><span id="13" class="l"><a class="l" href="#13">13: </a>
 </span><span id="14" class="l"><a class="l" href="#14">14: </a>    <span class="php-comment">/**
-</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment">     * Each reported and tagged times are returned as a Time objects in the order they
+</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment">     * Each reported and tagged times are returned as TimeTag objects in the order they
 </span></span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-comment">     * are found.
 </span></span><span id="17" class="l"><a class="l" href="#17">17: </a><span class="php-comment">     *
-</span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment">     * @return array of Time objects.
+</span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment">     * @return array of TimeTag objects.
 </span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment">     */</span>
-</span><span id="20" class="l"><a class="l" href="#20">20: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_readTimes" href="#_readTimes">readTimes</a>()
+</span><span id="20" class="l"><a class="l" href="#20">20: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_readTimeTags" href="#_readTimeTags">readTimeTags</a>()
 </span><span id="21" class="l"><a class="l" href="#21">21: </a>    {
 </span><span id="22" class="l"><a class="l" href="#22">22: </a>        <span class="php-var">$arr</span> = <span class="php-keyword1">array</span>();
 </span><span id="23" class="l"><a class="l" href="#23">23: </a>        <span class="php-var">$lines</span> = <span class="php-keyword2">explode</span>(<span class="php-quote">&quot;\n&quot;</span>, <span class="php-var">$this</span>-&gt;str);
@@ -116,7 +116,7 @@
 </span><span id="30" class="l"><a class="l" href="#30">30: </a>            <span class="php-var">$min</span> = <span class="php-quote">&quot;(:(\d\d))?&quot;</span>;
 </span><span id="31" class="l"><a class="l" href="#31">31: </a>            <span class="php-keyword1">if</span>(<span class="php-keyword2">preg_match</span>(<span class="php-quote">&quot;/^.{10,10}(\d)</span><span class="php-var">$min</span><span class="php-quote">.*</span><span class="php-var">$</span><span class="php-quote">/&quot;</span>, <span class="php-var">$line</span>, <span class="php-var">$matches</span>)) {
 </span><span id="32" class="l"><a class="l" href="#32">32: </a>                <span class="php-var">$mm</span> = (<span class="php-keyword2">sizeof</span>(<span class="php-var">$matches</span>) === <span class="php-num">4</span>) ? <span class="php-var">$matches</span>[<span class="php-num">3</span>] : <span class="php-num">0</span>;
-</span><span id="33" class="l"><a class="l" href="#33">33: </a>                <span class="php-var">$arr</span>[] = <span class="php-keyword1">new</span> <span class="php-keyword2">Time</span>(<span class="php-var">$matches</span>[<span class="php-num">1</span>], <span class="php-var">$mm</span>);
+</span><span id="33" class="l"><a class="l" href="#33">33: </a>                <span class="php-var">$arr</span>[] = <span class="php-keyword1">new</span> TimeTag(<span class="php-var">$matches</span>[<span class="php-num">1</span>], <span class="php-var">$mm</span>);
 </span><span id="34" class="l"><a class="l" href="#34">34: </a>            }
 </span><span id="35" class="l"><a class="l" href="#35">35: </a>            <span class="php-comment"># Tags</span>
 </span><span id="36" class="l"><a class="l" href="#36">36: </a>            <span class="php-keyword1">if</span>(<span class="php-keyword2">preg_match_all</span>(<span class="php-quote">&quot;/\((([\+|-]?)\d+)</span><span class="php-var">$min</span><span class="php-quote">\s+([^\s|\)]+)\s*\)/&quot;</span>, <span class="php-var">$line</span>, <span class="php-var">$matches</span>, PREG_SET_ORDER)) {
@@ -126,7 +126,7 @@
 </span><span id="40" class="l"><a class="l" href="#40">40: </a>                    <span class="php-var">$mm</span> = <span class="php-var">$items</span>[<span class="php-num">4</span>];
 </span><span id="41" class="l"><a class="l" href="#41">41: </a>                    <span class="php-var">$tag</span> = <span class="php-var">$items</span>[<span class="php-num">5</span>];
 </span><span id="42" class="l"><a class="l" href="#42">42: </a>                    <span class="php-var">$mm</span> = (<span class="php-var">$mm</span> === <span class="php-quote">''</span>) ? <span class="php-num">0</span> : <span class="php-var">$operator</span> . <span class="php-var">$mm</span>;
-</span><span id="43" class="l"><a class="l" href="#43">43: </a>                    <span class="php-var">$arr</span>[] = <span class="php-keyword1">new</span> <span class="php-keyword2">Time</span>(<span class="php-var">$hh</span>, <span class="php-var">$mm</span>, <span class="php-var">$tag</span>);
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>                    <span class="php-var">$arr</span>[] = <span class="php-keyword1">new</span> TimeTag(<span class="php-var">$hh</span>, <span class="php-var">$mm</span>, <span class="php-var">$tag</span>);
 </span><span id="44" class="l"><a class="l" href="#44">44: </a>                }
 </span><span id="45" class="l"><a class="l" href="#45">45: </a>            }
 </span><span id="46" class="l"><a class="l" href="#46">46: </a>        }
