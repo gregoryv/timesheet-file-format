@@ -31,3 +31,5 @@
    29 Thu 8
    30 Fri 7:15 (-0:45 flex)
    31 Sat
+
+# Line based comments start with a dash
