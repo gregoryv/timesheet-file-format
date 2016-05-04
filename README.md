@@ -15,7 +15,7 @@ File format
 The main goals of the file format are
 
 - human readable
-- easily editable with basic text editor
+- easy to edit with a text editor
 - easy to parse
 
 ### Example
@@ -58,7 +58,7 @@ The main goals of the file format are
 Tools
 -----
 
-### bin/sum.php
+### bin/sum-timesheet
 
 Prints out summary of one or more timesheet files. For the above example the
 summary would be
@@ -66,7 +66,7 @@ summary would be
     sum=174:30 flex=-1:30 conference=7 travel=1
 
 
-### bin/timesheet.php
+### bin/generate-timesheet
 
 Renders a timesheet template with for a given month. Each working
 day, monday-friday, has 8 hours by default.
