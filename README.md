@@ -60,9 +60,9 @@ Tools
 
 ### bin/sum-timesheet
 
-Prints out summary of one or more timesheet files. For the above example the
-summary would be
+Prints out summary of one or more timesheet files. 
 
+    > sum-timesheet above-example.timesheet
     sum=174:30 flex=-1:30 conference=7 travel=1
 
 
