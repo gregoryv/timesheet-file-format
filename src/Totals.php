@@ -43,10 +43,10 @@ class Totals extends \ArrayObject
     foreach ($this as $k => $v) {
       switch($v->minutes) {
         case 0:
-          $line .= sprintf("%s=%s ", $k, $v->hours);
+          $line .= sprintf("%s=%s ", utf8_decode($k), $v->hours);
           break;
         default:
-          $line .= sprintf("%s=%s ", $k, $v->toString());
+          $line .= sprintf("%s=%s ", utf8_decode($k), $v->toString());
       }
     }
     return rtrim($line) ."\n";
