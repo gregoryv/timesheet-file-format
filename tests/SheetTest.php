@@ -7,7 +7,7 @@ class SheetTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $txt = $this->sheet = file_get_contents(__DIR__ . '/../example.ets');
+        $txt = $this->sheet = file_get_contents(__DIR__ . '/../example.timesheet');
         $this->sheet = new Sheet($txt);
     }
 
