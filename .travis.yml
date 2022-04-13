@@ -2,7 +2,6 @@ sudo: false
 language: php
 php:
   - 7.4.3
-  - nightly
 env:
   - CODECLIMATE_REPO_TOKEN=d8c626969c36be4b743244deca8493ad68f69aafd6790f7da89e9d8c00c3c576
 
