@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/gregoryv/timesheet-file-format.svg?branch=master)](https://travis-ci.org/gregoryv/timesheet-file-format)
-[![Code Climate](https://codeclimate.com/github/gregoryv/timesheet-file-format/badges/gpa.svg)](https://codeclimate.com/github/gregoryv/timesheet-file-format)
-[![Test Coverage](https://codeclimate.com/github/gregoryv/timesheet-file-format/badges/coverage.svg)](https://codeclimate.com/github/gregoryv/timesheet-file-format/coverage)
+ARCHIVED! Moved to https://sogvin.com/timesheet-file-format
 
 README
 ======
